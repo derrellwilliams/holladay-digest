@@ -22,7 +22,7 @@ export default function AboutOverlay({ origin, onClose }: { origin: DOMRect | nu
         <motion.p variants={riseItem} className="mt-10 font-mono text-sm text-paper/60">
           Open source on{' '}
           <a
-            href="https://github.com/derrellwilliams/Holladay-Digest"
+            href="https://github.com/derrellwilliams/holladay-digest"
             target="_blank"
             rel="noopener noreferrer"
             className="text-lime underline underline-offset-4 hover:text-paper transition-colors duration-150"
