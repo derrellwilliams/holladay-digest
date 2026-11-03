@@ -129,6 +129,8 @@ def parse_meeting_rows(soup: BeautifulSoup, base_url: str) -> list[dict]:
                 continue  # no minutes available for this meeting
 
             minutes_url = urljoin(base_url, minutes_link["href"])
+            if not minutes_url.startswith("https://"):
+                continue  # rendered as a link on the site and in emails, so no javascript: etc.
             results.append({
                 "url": minutes_url,
                 "meeting_type": meeting_type,
@@ -637,7 +639,7 @@ def _plain_date(date_str: Optional[str]) -> str:
     try:
         d = datetime.strptime(date_str, "%b %d, %Y")
     except ValueError:
-        return date_str
+        return html.escape(date_str)
     return f"{d.strftime('%B')} {d.day} {d.year}"
 
 

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@paper-design/shaders-react": "^0.0.81",
-    "better-sqlite3": "^9.4.3",
+    "better-sqlite3": "^13.0.3",
     "motion": "^13.4.2",
     "next": "^15.5.28",
     "react": "^18",
@@ -18,7 +18,7 @@
     "resend": "^6.12.2"
   },
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.9",

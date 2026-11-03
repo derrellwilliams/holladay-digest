@@ -12,7 +12,7 @@ AI summaries of Holladay, UT city meeting minutes. Live at https://holladay.fyi.
 
 ## Commands
 
-- Web app: `cd next-app && npm run dev` (port 3001). Node 22 (`engines` pins 22.x for better-sqlite3 on Vercel).
+- Web app: `cd next-app && npm run dev` (port 3001). Node 24 (`engines` pins 24.x for better-sqlite3 on Vercel; `.nvmrc` matches, so run `nvm use` first).
 - Type check: `npx tsc --noEmit`, then delete `tsconfig.tsbuildinfo`.
 - Scraper (needs `ANTHROPIC_API_KEY`, Python 3.11 in CI): `python scraper.py --recent`, or `--resummarize N` to redo the N newest summaries (no email). The key lives only in GitHub secrets, so real runs go through the **Scrape Meeting Minutes** workflow (`gh workflow run scrape.yml -f resummarize=N`).
 
@@ -44,4 +44,4 @@ AI summaries of Holladay, UT city meeting minutes. Live at https://holladay.fyi.
 ## Deployment
 
 - Vercel project root `next-app`. The DB is committed, so a bot DB commit redeploys the site.
-- Remote: `github.com/derrellwilliams/Holladay-Digest`.
+- Remote: `github.com/derrellwilliams/holladay-digest`.
