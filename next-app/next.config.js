@@ -5,12 +5,7 @@ const nextConfig = {
   // Pin workspace root to avoid false detection from parent lockfiles
   outputFileTracingRoot: path.join(__dirname, '..'),
   // Allow better-sqlite3 (native module) to be used server-side
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.externals = [...(config.externals || []), 'better-sqlite3'];
-    }
-    return config;
-  },
+  serverExternalPackages: ['better-sqlite3'],
   async headers() {
     // Next's inline bootstrap scripts and motion's inline styles need 'unsafe-inline'; dev also needs eval for HMR
     const csp = [

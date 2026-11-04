@@ -25,7 +25,7 @@ AI summaries of Holladay, UT city meeting minutes. Live at https://holladay.fyi.
 
 ## Web app (`next-app/`)
 
-- Next.js 15 App Router, React 18, Tailwind 3 (`hoverOnlyWhenSupported`), better-sqlite3 (sync; call directly in server components), motion, `@paper-design/shaders-react`.
+- Next.js 16 App Router (Turbopack), React 19, Tailwind 3 (`hoverOnlyWhenSupported`), better-sqlite3 (sync; call directly in server components), motion, `@paper-design/shaders-react`.
 - Tokens: `forest` (page bg), `pine` (cards), `lime` (accent), `moss`, `mint`, `soot`, `paper`. Fonts: Roboto Mono (`font-mono`, next/font/google), Zalando Sans (`font-sans`, self-hosted in `app/fonts/`).
 - `app/page.tsx`: hero (pinned left on desktop, 60px margins top, left and bottom), date nav, meeting feed. `?m=<id>` opens at that meeting. `app/meetings/[id]` redirects to `/?m=<id>`.
 - `components/MeetingBrowser.tsx`: date nav plus every meeting in one page-scrolling feed. Tracks the meeting at the top (`replaceState` on `?m=`), date clicks animate a 400ms scroll that lands 24px below the top and flashes the date lime, and meetings render lazily within 1500px with a manual scroll anchor. Desktop shows the About copy above the first card, with 300px of the first card peeking in.
