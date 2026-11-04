@@ -8,7 +8,7 @@ AI summaries of Holladay, UT city meeting minutes. Live at https://holladay.fyi.
 - Minimum code for the request: no speculative features, single-use abstractions, or handling for impossible cases.
 - Touch only what the request needs. Match existing style. Flag dead code; don't delete it unasked.
 - For non-trivial changes, state what "done" looks like and verify it (render the page, check desktop and mobile).
-- Commits go to `main`, which auto-deploys on Vercel, so commit and push only when asked. No `Co-Authored-By` line.
+- Commits go to `main`, which auto-deploys on Vercel, so commit and push only when asked.
 
 ## Commands
 
