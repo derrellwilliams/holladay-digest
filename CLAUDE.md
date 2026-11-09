@@ -13,7 +13,7 @@ AI summaries of Holladay, UT city meeting minutes. Live at https://holladay.fyi.
 ## Commands
 
 - Web app: `cd next-app && npm run dev` (port 3001). Node 24 (`engines` pins 24.x for better-sqlite3 on Vercel; `.nvmrc` matches, so run `nvm use` first).
-- Type check: `npx tsc --noEmit`, then delete `tsconfig.tsbuildinfo`.
+- Type check: `npx tsc --noEmit`, then delete `tsconfig.tsbuildinfo`. This is the check Claude can run: `next build` fails in the sandbox (Google Fonts fetch), so I run builds myself.
 - Scraper (needs `ANTHROPIC_API_KEY`, Python 3.11 in CI): `python scraper.py --recent`, or `--resummarize N` to redo the N newest summaries (no email). The key lives only in GitHub secrets, so real runs go through the **Scrape Meeting Minutes** workflow (`gh workflow run scrape.yml -f resummarize=N`).
 
 ## Scraper (`scraper.py`)
