@@ -8,12 +8,12 @@ AI summaries of Holladay, UT city meeting minutes. Live at https://holladay.fyi.
 - Minimum code for the request: no speculative features, single-use abstractions, or handling for impossible cases.
 - Touch only what the request needs. Match existing style. Flag dead code; don't delete it unasked.
 - For non-trivial changes, state what "done" looks like and verify it (render the page, check desktop and mobile).
-- Commits go to `main`, which auto-deploys on Vercel, so commit and push only when asked.
+- Commits go to `main`, which auto-deploys on Vercel.
 
 ## Commands
 
 - Web app: `cd next-app && npm run dev` (port 3001). Node 24 (`engines` pins 24.x for better-sqlite3 on Vercel; `.nvmrc` matches, so run `nvm use` first).
-- Type check: `npx tsc --noEmit`, then delete `tsconfig.tsbuildinfo`. This is the check Claude can run: `next build` fails in the sandbox (Google Fonts fetch), so I run builds myself.
+- Type check: `npx tsc --noEmit`, then delete `tsconfig.tsbuildinfo`.
 - Scraper (needs `ANTHROPIC_API_KEY`, Python 3.11 in CI): `python scraper.py --recent`, or `--resummarize N` to redo the N newest summaries (no email). The key lives only in GitHub secrets, so real runs go through the **Scrape Meeting Minutes** workflow (`gh workflow run scrape.yml -f resummarize=N`).
 
 ## Scraper (`scraper.py`)
@@ -37,7 +37,7 @@ AI summaries of Holladay, UT city meeting minutes. Live at https://holladay.fyi.
 
 ## Motion conventions
 
-- Follow emilkowalski/skills: animate only transform, opacity, clip-path and filter; no ease-in; keyboard-opened overlays don't animate; reduced motion falls back to fades.
+- Motion rules (from emilkowalski/skills, kept in `~/projects/_skills/`): animate only transform, opacity, clip-path and filter; no ease-in; keyboard-opened overlays don't animate; reduced motion falls back to fades.
 - Easing tokens in `globals.css` (`--ease-out`, `--ease-in-out`, `--ease-drawer`); `.press` adds the scale(0.97) press.
 - First-visit intro (`data-intro` on `<html>`) runs image → title letters → dates → About copy → first card. It stays paused until `data-hero-ready`.
 
